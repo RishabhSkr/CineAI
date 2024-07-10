@@ -5,7 +5,7 @@
 - Login Form
 - Signup Form
 - Form Validation
-
+- Deploy to the production
 
 # Features
 - Login/Sign Up
