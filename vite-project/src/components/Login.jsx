@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { Header } from './Header';
 import { useNavigate } from "react-router-dom"
-import { formValidate } from '../utils/formValidate';
 
 export const Login = () => {
   return (
@@ -23,37 +23,25 @@ export const Login = () => {
 
 function LoginForm() {
   const navigate = useNavigate();
-  const email = useRef(null);
-  const password = useRef(null);
-  const [emailErrormsg,setEmailErrorMsg]=useState(null);
-  const [passwordErrormsg,setpasswordErrormsg]=useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handbuttonClick= (e)=>{
-    e.preventDefault();
-    // validate 
-    const msg = formValidate(email.current.value,password.current.value);
-     // Perform sign-in logic here
-    if(msg!=null && msg.includes("email")){
-      setpasswordErrormsg(null);
-      setEmailErrorMsg(msg);
-    }else if(msg!=null && msg.includes("password")){
-      setEmailErrorMsg(null);
-      setpasswordErrormsg(msg);
-    }else{
-      setEmailErrorMsg(null);
-      setpasswordErrormsg(null);  
-    }
-    
-     console.log('Email:', email.current.value);
-     console.log('Password:', password.current.value);
-     console.log(msg);
-};
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-
-
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
   const handleSignupNavigation = (event) => {
     event.preventDefault(); // Prevent the default anchor tag behavior
     navigate('/signup');
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform sign-in logic here
+    console.log('Email:', email);
+    console.log('Password:', password);
   };
 
   return (
@@ -70,26 +58,26 @@ function LoginForm() {
         Sign In
       </div>
 
-      <form   >
+      <form onSubmit={handleSubmit}>
         <div className='mb-4'>
           <input
-            ref={email}
             type='email'
+            value={email}
             placeholder='Email Address'
+            onChange={handleEmailChange}
             className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
           />
         </div>
-        <p className=' text-red-500 text-sm mb-2' >{emailErrormsg}</p>
         <div className='mb-6'>
           <input
-          ref={password}
             type='password'
+            value={password}
             placeholder='Password'
+            onChange={handlePasswordChange}
             className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
           />
         </div>
-        <p className=' text-red-500 text-sm mb-2' >{passwordErrormsg}</p>
-        <button onClick={handbuttonClick} className='w-full bg-red-600 border rounded-md text-white py-2 hover:bg-red-700 transition duration-300 mb-4'>
+        <button className='w-full bg-red-600 border rounded-md text-white py-2 hover:bg-red-700 transition duration-300 mb-4'>
           Sign In
         </button>
         <div className='flex items-center justify-between mb-4'>

@@ -1,7 +1,6 @@
-import { useRef,useState} from 'react'
+import { useState } from 'react'
 import { Header } from './Header';
 import { useNavigate } from "react-router-dom"
-import { formValidate } from '../utils/formValidate';
 export const Signup = () => {
 
     return (
@@ -23,31 +22,10 @@ export const Signup = () => {
 
 function SignupForm() {
     const navigate = useNavigate();
-    const email = useRef(null);
-    const password = useRef(null);
-    const [emailErrormsg, setEmailErrorMsg] = useState(null);
-    const [passwordErrormsg, setpasswordErrormsg] = useState(null);
-    const handbuttonClick = (e) => {
-        e.preventDefault();
-        // validate 
-        const msg = formValidate(email.current.value, password.current.value);
-        // Perform sign-in logic here
-        if (msg != null && msg.includes("email")) {
-            setpasswordErrormsg(null);
-            setEmailErrorMsg(msg);
-        } else if (msg != null && msg.includes("password")) {
-            setEmailErrorMsg(null);
-            setpasswordErrormsg(msg);
-        } else {
-            setEmailErrorMsg(null);
-            setpasswordErrormsg(null);
-        }
-
-        console.log('Email:', email.current.value);
-        console.log('Password:', password.current.value);
-        console.log(msg);
+    const [email, setEmail] = useState('');
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
-
     const handleLoginNavigation = (e) => {
         e.preventDefault();
         navigate('/');
@@ -55,7 +33,7 @@ function SignupForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Perform sign-in logic here
-
+        console.log('Email:', email);
     };
 
     return (
@@ -74,35 +52,29 @@ function SignupForm() {
             <form onSubmit={handleSubmit}>
                 <div className='mb-4'>
                     <input
-                
                         type='text'
                         placeholder='Enter your name'
+                        onChange={handleEmailChange}
                         className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
                     />
                 </div>
                 <div className='mb-4'>
                     <input
-                        ref={email}
                         type='email'
+                        value={email}
                         placeholder='Email Address'
+                        onChange={handleEmailChange}
                         className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
                     />
                 </div>
-                <p className=' text-red-500 text-sm mb-2'>
-                    {emailErrormsg}
-                </p>
                 <div className='mb-6'>
                     <input
-                        ref={password}
                         type='password'
                         placeholder='Password'
                         className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
                     />
                 </div>
-                <p className=' text-red-500 text-sm mb-2'>
-                    {passwordErrormsg}
-                </p>
-                <button onClick={handbuttonClick} className='w-full bg-red-600 border rounded-md text-white py-2 hover:bg-red-700 transition duration-300 mb-4'>
+                <button className='w-full bg-red-600 border rounded-md text-white py-2 hover:bg-red-700 transition duration-300 mb-4'>
                     Sign up
                 </button>
 
@@ -115,7 +87,7 @@ function SignupForm() {
                     <span className='opacity-70'>Already a member?</span>
                     <a onClick={handleLoginNavigation} className='text-white hover:underline ml-2 hover:cursor-pointer'>Login.</a>
                 </p>
-                <span className='text-xs opacity-60 mb-2 text-center'>This page is protected by Google reCAPTCHA to ensure you&aposre not a bot.</span>
+                <span className='text-xs opacity-60 mb-2 text-center'>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span>
                 <span><a href="#" className='text-xs text-blue-700 hover:underline'>Learn more.</a>
                 </span>
             </form>
