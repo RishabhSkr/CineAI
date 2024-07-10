@@ -1,4 +1,4 @@
-# Netflix GPT
+# Netflix GPT  [Live Demo](https://netflixgpt-b84c9.web.app/ "Live Demo")
 - Create React App using Vite
 - Configured tailwindcss
 - Header
