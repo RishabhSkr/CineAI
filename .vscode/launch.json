@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Edge",
+        "request": "attach",
+        "type":"chrome",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder}",
+        "sourceMaps": true,
+        "trace": true
+      },
+      {
+        "name": "Attach to Edge",
+        "request": "launch",
+        "type": "chrome",
+        "port": 9222,
+        "webRoot": "${workspaceFolder}",
+        "sourceMaps": true,
+        "trace": true
+      }
+    ]
+  }
+  
