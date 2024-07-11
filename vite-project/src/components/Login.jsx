@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import { Header } from './Header';
 import { useNavigate } from "react-router-dom"
 import { formValidate } from '../utils/formValidate';
+import {signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
 
 export const Login = () => {
   return (
@@ -32,6 +34,7 @@ function LoginForm() {
     e.preventDefault();
     // validate 
     const msg = formValidate(email.current.value,password.current.value);
+
      // Perform sign-in logic here
     if(msg!=null && msg.includes("email")){
       setpasswordErrormsg(null);
@@ -43,6 +46,24 @@ function LoginForm() {
       setEmailErrorMsg(null);
       setpasswordErrormsg(null);  
     }
+    if(msg)return;
+    //Login user
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          alert("Successfully Created User!") ;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode+": "+errorMessage);
+        });
+
+    
     
      console.log('Email:', email.current.value);
      console.log('Password:', password.current.value);

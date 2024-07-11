@@ -2,6 +2,8 @@ import { useRef,useState} from 'react'
 import { Header } from './Header';
 import { useNavigate } from "react-router-dom"
 import { formValidate } from '../utils/formValidate';
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../utils/firebase"
 export const Signup = () => {
 
     return (
@@ -42,11 +44,27 @@ function SignupForm() {
             setEmailErrorMsg(null);
             setpasswordErrormsg(null);
         }
+        
+        if(msg)return;
+        // create user
+        createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            alert("Successfully Created User!") ;
+            console.log(user);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode+": "+errorMessage);
+            // ..
+        });
 
-        console.log('Email:', email.current.value);
-        console.log('Password:', password.current.value);
         console.log(msg);
     };
+
+
 
     const handleLoginNavigation = (e) => {
         e.preventDefault();
