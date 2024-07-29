@@ -6,6 +6,10 @@
 - Signup Form
 - Form Validation
 - Deploy to the production
+- Firebase authentication
+- created recoil store 
+- bug fixed-displayName updated using Recoil
+- 
 
 # Features
 - Login/Sign Up
