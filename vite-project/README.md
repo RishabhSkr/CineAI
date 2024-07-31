@@ -8,8 +8,27 @@
 - Deploy to the production
 - Firebase authentication
 - created recoil store 
+- create a userAtom-store userName,Email,Phto
+- create selector- isuserLoggedIn State
+- created a custom Hook userActions-adduser,Remove user
 - bug fixed-displayName updated using Recoil
+- Update Profile while SignUp
+- Unsubscribed from to authStatechanged callback
+- bug fixed- all hardcoded value moved to constant file
+- Register TMDB API and get access token
+- setup axios and get data of nowPlayingMovies from TMDB API
+- create movieAtom-nowPlaying atom
+- create custom Hook - to fetch nowPlaying Movies from API in browse page
+- Update the nowPlaying movies atom
+- create custom Hook - to fetch movie trailer from API in browse pages
+- create a Plan Main container,Secondary conatainer
+- create trailer atom moviesAtom
+- Update the trailer atom
+- create subcomponent - Video background,Video Title
+- Embed the Youtube Video trailer and make it autoplay and mute
+- Added styling using tailwind Main Container
 - 
+
 
 # Features
 - Login/Sign Up

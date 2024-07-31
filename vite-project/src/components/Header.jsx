@@ -1,14 +1,18 @@
 import { useRecoilValue } from "recoil";
-import { isUserLoggedInState,userNameState } from "../store/selectors/isUserLogged";
-import { getAuth, signOut } from "firebase/auth";
-import { useUserActions} from "../store/atoms/userActions";
+import { isUserLoggedInState } from "../store/selectors/isUserLogged";
+import { getAuth, signOut} from "firebase/auth";
+import { useUserActions} from "../Hooks/userActions";
 import { useNavigate } from "react-router-dom";
-
+import { userState } from "../store/atoms/userAtom";
+import { LOGO } from "./constants";
 export const Header = () => {
   const isLoggedIn = useRecoilValue(isUserLoggedInState);
-  const userName = useRecoilValue(userNameState);
-  console.log(userName);
+  const { userName, imageLink } = useRecoilValue(userState);
+  // console.log(imageLink);
   const { removeUser } = useUserActions();
+
+  // console.log(imageLink)
+
 
   const handleLogout = async () => {
     const auth = getAuth();
@@ -27,17 +31,17 @@ export const Header = () => {
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
       <img
         className="w-44"
-        src=" https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+        src={LOGO}
         alt="logo"
       ></img>
-
       {isLoggedIn ? (
         <div className="flex p-2">
           <img
             className="h-12  w-12"
             alt="usericon"
-            src="https://i.pinimg.com/564x/1b/a2/e6/1ba2e6d1d4874546c70c91f1024e17fb.jpg"
+            src={imageLink}
           />
+      
           <p>{userName}</p>
           <LogoutButton handleLogout={handleLogout} />
         </div>
