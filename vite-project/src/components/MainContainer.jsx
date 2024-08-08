@@ -5,6 +5,7 @@ import { VideoTitle } from './VideoTitle';
 export const MainContainer = () => {
   const [movieObj, setMoviesObj] = useRecoilState(moviesNowPlayingState);
   const movies = movieObj.nowPlayingMovies.results;
+
   if(!movies)return ;
   const mainMovie = movies[0];
   // console.log(mainMovie)

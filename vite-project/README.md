@@ -27,7 +27,11 @@
 - create subcomponent - Video background,Video Title
 - Embed the Youtube Video trailer and make it autoplay and mute
 - Added styling using tailwind Main Container
-- 
+- Building Secondary Container
+- fetch the image-TMDB CDN IMG container
+- Implemented movie container
+- buiild movie card
+- hidden scrollable effect -movie card
 
 
 # Features

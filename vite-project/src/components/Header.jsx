@@ -5,6 +5,7 @@ import { useUserActions} from "../Hooks/userActions";
 import { useNavigate } from "react-router-dom";
 import { userState } from "../store/atoms/userAtom";
 import { LOGO } from "./constants";
+
 export const Header = () => {
   const isLoggedIn = useRecoilValue(isUserLoggedInState);
   const { userName, imageLink } = useRecoilValue(userState);
