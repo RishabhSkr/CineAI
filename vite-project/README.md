@@ -32,7 +32,7 @@
 - Implemented movie container
 - buiild movie card
 - hidden scrollable effect -movie card
-
+- implemented NowPlaying,Upcoming and Popular movies cards using TMDB API
 
 # Features
 - Login/Sign Up

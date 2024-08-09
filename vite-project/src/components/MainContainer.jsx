@@ -1,9 +1,9 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { moviesNowPlayingState } from '../store/atoms/moviesAtom';
 import { VideoBackground } from './VideoBackground';
 import { VideoTitle } from './VideoTitle';
 export const MainContainer = () => {
-  const [movieObj, setMoviesObj] = useRecoilState(moviesNowPlayingState);
+  const movieObj = useRecoilValue(moviesNowPlayingState);
   const movies = movieObj.nowPlayingMovies.results;
 
   if(!movies)return ;

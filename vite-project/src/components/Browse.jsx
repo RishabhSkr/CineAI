@@ -6,7 +6,8 @@ import { useRecoilValue } from "recoil";
 import { useNowPlayingMovies } from "../Hooks/moviesNowPlaying";
 import { MainContainer } from "./MainContainer";
 import { SecondaryConatainer } from "./SecondaryConatainer";
-
+import { usePopularMovies } from "../Hooks/popularMovies";
+import { useUpcomingMovies } from "../Hooks/upcomingMovies";
 const Browse = () => {
   const isUserLogged= useRecoilValue(isUserLoggedInState);
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ const Browse = () => {
     }
   }, [isUserLogged, navigate]);
 
+  usePopularMovies();
   useNowPlayingMovies();
+  useUpcomingMovies();
   if (!isUserLogged) {
     return null; // Return null to avoid rendering the component
   }

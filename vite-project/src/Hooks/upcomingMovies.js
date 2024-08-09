@@ -1,27 +1,30 @@
+// https://api.themoviedb.org/3/movie/upcoming?page=1
+
+
 import { useSetRecoilState } from 'recoil';
 import { moviesNowPlayingState } from "../store/atoms/moviesAtom";
 import { API_OPTIONS } from "../components/constants";
 import axios from 'axios';
 import { useEffect } from 'react';
 
-export const useNowPlayingMovies = () => {
-    const setMoviesNowPlaying = useSetRecoilState(moviesNowPlayingState);
+export const useUpcomingMovies = () => {
+    const setUpcomingMovies = useSetRecoilState(moviesNowPlayingState);
     
-    const getNowPlayingMovies = async () => {
-        const URL = 'https://api.themoviedb.org/3/movie/now_playing?page=1';
+    const getUpcomingMovies = async () => {
+        const URL = 'https://api.themoviedb.org/3/movie/upcoming?page=1';
         try {
             const res = await axios.get(URL, API_OPTIONS);
-              console.log(res.data)
-            setMoviesNowPlaying(prevState =>({
+              console.log(res.data);
+              setUpcomingMovies(prevState =>({
                 ...prevState,
-                nowPlayingMovies:res.data
+                upcomingMovies:res.data
             }));
         } catch (error) {
             console.log("Error: ", error);
         }
     };
     useEffect(() => {
-        getNowPlayingMovies();
+        getUpcomingMovies();
     }, []);
     
     // console.log(moviesNowPlaying.nowPlayingMovies);

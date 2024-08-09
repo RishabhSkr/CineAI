@@ -4,6 +4,9 @@ export const moviesNowPlayingState = atom({
     key: 'moviesNowPlayingState', // unique ID (with respect to other atoms/selectors)
     default: {
       nowPlayingMovies :null,
+      popularMovies:null,
+      upcomingMovies:null
+
     }, // default value (aka initial state)
   });
 
