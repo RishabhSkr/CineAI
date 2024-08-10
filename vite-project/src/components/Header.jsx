@@ -1,12 +1,14 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isUserLoggedInState } from "../store/selectors/isUserLogged";
-import { getAuth, signOut} from "firebase/auth";
-import { useUserActions} from "../Hooks/userActions";
+import { getAuth, signOut } from "firebase/auth";
+import { useUserActions } from "../Hooks/userActions";
 import { useNavigate } from "react-router-dom";
 import { userState } from "../store/atoms/userAtom";
 import { LOGO } from "./constants";
+import { gptState } from "../store/atoms/gptAtom";
 
 export const Header = () => {
+  const setToggleGptState = useSetRecoilState(gptState);
   const isLoggedIn = useRecoilValue(isUserLoggedInState);
   const { userName, imageLink } = useRecoilValue(userState);
   // console.log(imageLink);
@@ -14,7 +16,14 @@ export const Header = () => {
 
   // console.log(imageLink)
 
-
+  const handleGptSearchbar= ()=>{
+      // toggle 
+        setToggleGptState(prevState => ({
+              ...prevState,
+              toggleGptSearchView: !prevState.toggleGptSearchView
+          }));
+   
+  };
   const handleLogout = async () => {
     const auth = getAuth();
     try {
@@ -37,12 +46,17 @@ export const Header = () => {
       ></img>
       {isLoggedIn ? (
         <div className="flex p-2">
+          <button className="bg-blue-600 py-2 px-4 m-2 rounded-lg text-white"
+
+          onClick={handleGptSearchbar}>
+            GptSearch
+          </button>
           <img
             className="h-12  w-12"
             alt="usericon"
             src={imageLink}
           />
-      
+
           <p>{userName}</p>
           <LogoutButton handleLogout={handleLogout} />
         </div>

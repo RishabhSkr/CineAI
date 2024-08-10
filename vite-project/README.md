@@ -34,6 +34,8 @@
 - hidden scrollable effect -movie card
 - created Custom Hooks for popular and upcoming movies
 - build NowPlaying,Upcoming and Popular movies cards using TMDB API
+- bug fixed-responsiveness on small screen
+- created toggle GPT atom and Component
 
 # Features
 - Login/Sign Up
