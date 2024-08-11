@@ -36,6 +36,9 @@
 - build NowPlaying,Upcoming and Popular movies cards using TMDB API
 - bug fixed-responsiveness on small screen
 - created toggle GPT atom and Component
+- GPT Search Bar and GPT Search Page
+- (Feature)created Multi-Language feature in app
+- i
 
 # Features
 - Login/Sign Up
