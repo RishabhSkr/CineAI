@@ -2,11 +2,12 @@ import axios from "axios";
 import { API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
 import { trailerKeyState } from "../store/atoms/moviesAtom.jsx";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isTrailerKeyState } from "../store/selectors/isMovies.js";
 
 export const useMovieTrailer = (movieId) => {
     const [trailerId, setTrailerId] = useRecoilState(trailerKeyState)
-    console.log(trailerId);
+    const isTrailer = useRecoilValue(isTrailerKeyState);
     // fetch the video trailer from yt using movieid
     const getMainMovieVideos = async () => {
         const URL = 'https://api.themoviedb.org/3/movie/'+movieId+'/videos';
@@ -27,7 +28,7 @@ export const useMovieTrailer = (movieId) => {
     };
 
     useEffect(() => {
-        getMainMovieVideos();
+       !isTrailer && getMainMovieVideos();
     }, []);
 }
 export default useMovieTrailer;

@@ -1,4 +1,4 @@
-# Netflix GPT  [Live Demo](https://netflixgpt-b84c9.web.app/ "Live Demo")
+# Netflix GPT  [Live Demo](https://netflixgpt-b84c9.web.app/ "Live Demo") [Demo Video](https://www.awesomescreenshot.com/video/30472435?key=9f1fc8331e9340e060ca4843343a092b "Demo Video")
 - Create React App using Vite
 - Configured tailwindcss
 - Header
@@ -42,7 +42,8 @@
 - Bug Fixed-added a loading if data is null
 - Made  GEMINI search suggestions page
 - bug fixed - shows all movies category wise in GEMINI Search page
-- Added keys to env variables
+- Added private keys to env variables
+- Bug Fixed -[Added Memoization]- to save redundant API calls
 
 # Features
 - Login/Sign Up

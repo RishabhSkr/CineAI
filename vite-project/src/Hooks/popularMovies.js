@@ -1,12 +1,13 @@
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState,useRecoilValue } from 'recoil';
 import { moviesNowPlayingState } from "../store/atoms/moviesAtom";
 import { API_OPTIONS } from "../utils/constants";
 import axios from 'axios';
 import { useEffect } from 'react';
+import { isPopularMoviesState } from '../store/selectors/isMovies';
 
 export const usePopularMovies = () => {
     const setPopularMovies = useSetRecoilState(moviesNowPlayingState);
-    
+    const isPopular = useRecoilValue(isPopularMoviesState);
     const getPopularMovies = async () => {
         const URL = 'https://api.themoviedb.org/3/movie/popular?page=1';
         try {
@@ -21,7 +22,7 @@ export const usePopularMovies = () => {
         }
     };
     useEffect(() => {
-        getPopularMovies();
+       !isPopular &&  getPopularMovies();
     }, []);
     
     // console.log(moviesNowPlaying.nowPlayingMovies);
