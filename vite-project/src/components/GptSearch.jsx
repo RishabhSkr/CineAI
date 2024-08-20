@@ -1,10 +1,10 @@
 import { GptMovieSuggestion } from "./GptMovieSuggestion"
 import { GptSearchBar } from "./GptSearchBar"
-import { BACKGROUND } from "./constants"
+import { BACKGROUND } from "../utils/constants"
 export const GptSearch = () => {
   return (
-    <div>
-      <div className="absolute -z-10">
+    <div className="relative min-h-screen">
+      <div className="fixed inset-0  -z-10">
         <img
           src={BACKGROUND}
           alt='background'

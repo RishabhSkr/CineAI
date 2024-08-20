@@ -38,7 +38,11 @@
 - created toggle GPT atom and Component
 - GPT Search Bar and GPT Search Page
 - (Feature)created Multi-Language feature in app
-- i
+- integrate the GEMINI API
+- Bug Fixed-added a loading if data is null
+- Made  GEMINI search suggestions page
+- bug fixed - shows all movies category wise in GEMINI Search page
+- Added keys to env variables
 
 # Features
 - Login/Sign Up

@@ -3,7 +3,7 @@
 
 import { useSetRecoilState } from 'recoil';
 import { moviesNowPlayingState } from "../store/atoms/moviesAtom";
-import { API_OPTIONS } from "../components/constants";
+import { API_OPTIONS } from "../utils/constants";
 import axios from 'axios';
 import { useEffect } from 'react';
 

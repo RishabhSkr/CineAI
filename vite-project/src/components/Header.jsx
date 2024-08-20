@@ -4,7 +4,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { useUserActions } from "../Hooks/userActions";
 import { useNavigate } from "react-router-dom";
 import { userState } from "../store/atoms/userAtom";
-import { LOGO, SUPPORTED_LANGUAGES } from "./constants";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { gptState } from "../store/atoms/gptAtom";
 import { languageState } from "../store/atoms/languageConfig";
 import lang from "./languageContants";

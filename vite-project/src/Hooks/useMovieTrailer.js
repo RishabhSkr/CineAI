@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_OPTIONS } from "../components/constants";
+import { API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
 import { trailerKeyState } from "../store/atoms/moviesAtom.jsx";
 import { useRecoilState } from "recoil";
@@ -9,7 +9,7 @@ export const useMovieTrailer = (movieId) => {
     console.log(trailerId);
     // fetch the video trailer from yt using movieid
     const getMainMovieVideos = async () => {
-        const URL = 'https://api.themoviedb.org/3/movie/'+movieId+'/videos?language=en-US';
+        const URL = 'https://api.themoviedb.org/3/movie/'+movieId+'/videos';
         try {
             const res = await axios.get(URL, API_OPTIONS);
             // console.log(res.data);

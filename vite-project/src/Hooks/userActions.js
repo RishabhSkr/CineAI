@@ -1,6 +1,6 @@
 import {useSetRecoilState } from "recoil";
 import { userState } from "../store/atoms/userAtom"; // Correct the path if necessary
-import { USERPIC } from "../components/constants";
+import { USERPIC } from "../utils/constants";
 
 export const useUserActions = () => {
   const setUserState = useSetRecoilState(userState);

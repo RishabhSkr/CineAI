@@ -6,7 +6,7 @@ import {signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { isUserLoggedInState } from '../store/selectors/isUserLogged';
 import { useRecoilValue } from 'recoil';
-import { BACKGROUND } from './constants';
+import { BACKGROUND } from '../utils/constants';
 
 
 const Login = () => {

@@ -4,7 +4,17 @@ import { VideoBackground } from './VideoBackground';
 import { VideoTitle } from './VideoTitle';
 export const MainContainer = () => {
   const movieObj = useRecoilValue(moviesNowPlayingState);
+  
+  // Check if data is still loading
+  if (!movieObj.nowPlayingMovies) {
+    return <div>Loading...</div>; // Display loading indicator while fetching data
+  }
+
   const movies = movieObj.nowPlayingMovies.results;
+
+  if (!movies || movies.length === 0) {
+    return <div>No movies available</div>; // Handle case where there are no movies
+  }
 
   if(!movies)return ;
   const mainMovie = movies[0];

@@ -7,7 +7,10 @@ export const SecondaryConatainer = () => {
   const nowPlayingMovies = moviesState.nowPlayingMovies;
   const popularMovies = moviesState.popularMovies;
   const upcomingMovies = moviesState.upcomingMovies;
-
+  // Check if data is still loading
+  if (!moviesState ||!nowPlayingMovies || !upcomingMovies || !popularMovies) {
+    return <div>Loading...</div>; // Display loading indicator while fetching data
+  }
     // console.log(popularMovies)
     // console.log(nowPlayingMovies)
   return (

@@ -8,7 +8,7 @@ import { auth } from "../utils/firebase";
 import { isUserLoggedInState } from '../store/selectors/isUserLogged';
 import { useRecoilValue } from 'recoil';
 import { useUserActions } from '../Hooks/userActions'
-import { BACKGROUND, USERPIC } from './constants';
+import { BACKGROUND, USERPIC } from '../utils/constants';
 
 export const Signup = () => {
   const isUserLogged = useRecoilValue(isUserLoggedInState);
