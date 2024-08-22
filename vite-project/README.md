@@ -43,8 +43,9 @@
 - Made  GEMINI search suggestions page
 - bug fixed - shows all movies category wise in GEMINI Search page
 - Added private keys to env variables
-- Bug Fixed -[Added Memoization]- to save redundant API calls
-
+- Optimization and Scalability issue Fixed -
+- [Added Memoization]- to save redundant API calls
+- fix responsiveness of GEMINI search BAR and Movies Suggestions
 # Features
 - Login/Sign Up
     -SIgn In/ Sign u Form

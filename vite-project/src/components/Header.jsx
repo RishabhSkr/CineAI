@@ -48,35 +48,46 @@ export const Header = () => {
   }
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-center md:justify-between">
       <img
-        className="w-44"
+        className="w-44 md:mx-0 mx-auto"
         src={LOGO}
         alt="logo"
       />
       {isLoggedIn ? (
-        <div className="flex items-center ml-auto p-2">
-          {toggleGpt.toggleGptSearchView ? (
-            <select className=" m-2 p-2 bg-gray-800 text-white border-none outline-none" onChange={handleLanguageChange}>
-              {SUPPORTED_LANGUAGES.map(lang=> <option key={lang.identifier}value={lang.identifier}>{lang.name}</option>)}
-            </select>
-          ):null}
+  <div className="flex flex-wrap items-center ml-auto p-2 space-x-2">
+    {toggleGpt.toggleGptSearchView ? (
+      <select
+        className="p-2 bg-gray-800 text-white border-none outline-none text-xs sm:text-sm"
+        onChange={handleLanguageChange}
+      >
+        {SUPPORTED_LANGUAGES.map(lang => (
+          <option key={lang.identifier} value={lang.identifier}>
+            {lang.name}
+          </option>
+        ))}
+      </select>
+    ) : null}
 
-          <button
-            className="bg-transparent py-2 px-4 m-2 rounded-lg text-white border-none outline-none"
-            onClick={handleGptSearchbar}
-          >
-           { toggleGpt.toggleGptSearchView ? "HomePage" : "GPT Search"}
-          </button>
-          <img
-            className="h-12 w-12"
-            alt="usericon" 
-            src={imageLink}
-          />
-          <p className="text-white ml-2">{userName}</p>
-          <LogoutButton handleLogout={handleLogout} />
-        </div>
-      ) : null}
+    <button
+      className="bg-transparent py-1 px-2 rounded-lg text-white border-none outline-none text-xs sm:text-sm"
+      onClick={handleGptSearchbar}
+    >
+      {toggleGpt.toggleGptSearchView ? "HomePage" : "GPT Search"}
+    </button>
+
+    <img
+      className="h-10 w-10 hidden md:inline-block"
+      alt="usericon"
+      src={imageLink}
+    />
+
+    <p className="text-white ml-1 text-xs sm:text-sm">{userName}</p>
+
+    <LogoutButton handleLogout={handleLogout} />
+  </div>
+) : null}
+
     </div>
   );
 };

@@ -11,16 +11,21 @@ export const GptMovieSuggestion = () => {
   }
 
   return (
-    <div>
-      <div className='flex flex-wrap bg-gradient-to-b from-black'>
-        {moviesName.map((movieName, index) => {
-          // Get the movies array for the current category
-          const moviesForCategory = moviesResults[index] || [];
-          return (
-            <MovieList key={movieName} title={movieName} movies={moviesForCategory} />
-          );
-        })}
-      </div>
+    <div className='bg-gradient-to-b from-black p-4'>
+      {moviesName.map((movieName, index) => {
+        // Get the movies array for the current category
+        const moviesForCategory = moviesResults[index] || [];
+       
+        return (
+          <div className='mb-4' key={movieName}>
+            <div className='overflow-x-scroll scrollbar-hide'>
+              <div className='flex flex-nowrap'>
+                <MovieList title={movieName} movies={moviesForCategory} />
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
