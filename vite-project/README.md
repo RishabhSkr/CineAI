@@ -1,4 +1,4 @@
-# Netflix GPT  [Live Demo](https://netflixgpt-b84c9.web.app/ "Live Demo") [Demo Video](https://www.awesomescreenshot.com/video/30472435?key=9f1fc8331e9340e060ca4843343a092b "Demo Video")
+# Netflix GPT  [Live Demo](https://netflixgpt-b84c9.web.app/ "Live Demo") [Demo Video](https://www.awesomescreenshot.com/video/30766257?key=56880fa6313fa25885cbcf2591dd9886 "Demo Video")
 - Create React App using Vite
 - Configured tailwindcss
 - Header
@@ -46,6 +46,9 @@
 - Optimization and Scalability issue Fixed -
 - [Added Memoization]- to save redundant API calls
 - fix responsiveness of GEMINI search BAR and Movies Suggestions
+- fix responsiveness of homepage
+- Future TODO->Loader-Shimmer UI,Erro Page,More functional like->Info of movies
+
 # Features
 - Login/Sign Up
     -SIgn In/ Sign u Form
