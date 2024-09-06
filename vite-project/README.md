@@ -47,7 +47,7 @@
 - [Added Memoization]- to save redundant API calls
 - fix responsiveness of GEMINI search BAR and Movies Suggestions
 - fix responsiveness of homepage
-- Future TODO->Loader-Shimmer UI,Erro Page,More functional like->Info of movies
+- Future TODO->Loader-Shimmer UI,Error Page,More functional like->Info of movies
 
 # Features
 - Login/Sign Up
