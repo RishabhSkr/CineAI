@@ -8,7 +8,6 @@ import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { gptState } from "../store/atoms/gptAtom";
 import { languageState } from "../store/atoms/languageConfig";
 import lang from "./languageContants";
-
 export const Header = () => {
   const [toggleGpt, setToggleGptState] = useRecoilState(gptState);
   const isLoggedIn = useRecoilValue(isUserLoggedInState);
