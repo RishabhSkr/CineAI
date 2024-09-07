@@ -19,7 +19,7 @@ export const GptSearchBar = () => {
     const URL = "https://api.themoviedb.org/3/search/movie?query=" + movie + "&include_adult=false&page=1";
     try {
       const response = await axios.get(URL, API_OPTIONS);
-      console.log(response);
+      // console.log(response);
       return response.data.results; // Get the first movie result
 
     } catch (error) {
@@ -41,7 +41,7 @@ export const GptSearchBar = () => {
       const TMDBRes = await Promise.all(gptSearchRes.map(movie => searchMoviesTMDB(movie)));
   
       
-      console.log(TMDBRes);
+      // console.log(TMDBRes);
       // Set the state with the movie names and search results
       setGeminiMovies(prevState => ({
         ...prevState,
@@ -49,7 +49,7 @@ export const GptSearchBar = () => {
         moviesResults: TMDBRes
       }));
 
-      console.log(geminiMovies.moviesResults);
+      // console.log(geminiMovies.moviesResults);
       // console.log(geminiMovies.moviesName);
   
     } catch (error) {

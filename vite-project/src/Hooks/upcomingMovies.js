@@ -16,7 +16,7 @@ export const useUpcomingMovies = () => {
         const URL = 'https://api.themoviedb.org/3/movie/upcoming?page=1';
         try {
             const res = await axios.get(URL, API_OPTIONS);
-              console.log(res.data);
+            //   console.log(res.data);
               setUpcomingMovies(prevState =>({
                 ...prevState,
                 upcomingMovies:res.data

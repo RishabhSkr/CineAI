@@ -2,12 +2,13 @@ import { useRecoilValue } from 'recoil';
 import { moviesNowPlayingState } from '../store/atoms/moviesAtom';
 import { VideoBackground } from './VideoBackground';
 import { VideoTitle } from './VideoTitle';
+import ShimmerLoader from './ShimmerLoader';
 export const MainContainer = () => {
   const movieObj = useRecoilValue(moviesNowPlayingState);
   
   // Check if data is still loading
   if (!movieObj.nowPlayingMovies) {
-    return <div>Loading...</div>; // Display loading indicator while fetching data
+    return <div><ShimmerLoader/></div>; // Display loading indicator while fetching data
   }
 
   const movies = movieObj.nowPlayingMovies.results;

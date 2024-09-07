@@ -71,7 +71,7 @@ function LoginForm() {
       const userCredential = await signInWithEmailAndPassword(auth, email.current.value, password.current.value);
       const user = userCredential.user;
       alert("Successfully Logged In  User!"); 
-      console.log(user);
+      // console.log(user);
       navigate('/browse'); // Move navigation here
     } catch (error) {
       const errorCode = error.code;

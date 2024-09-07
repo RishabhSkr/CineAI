@@ -12,7 +12,7 @@ export const usePopularMovies = () => {
         const URL = 'https://api.themoviedb.org/3/movie/popular?page=1';
         try {
             const res = await axios.get(URL, API_OPTIONS);
-              console.log(res.data);
+            //   console.log(res.data);
               setPopularMovies(prevState =>({
                 ...prevState,
                 popularMovies:res.data

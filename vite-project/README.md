@@ -1,4 +1,8 @@
-# Netflix GPT  [Live Demo](https://netflixgpt-b84c9.web.app/ "Live Demo") [Demo Video](https://www.awesomescreenshot.com/video/30766257?key=56880fa6313fa25885cbcf2591dd9886 "Demo Video")
+# Netflix GPT  [Live Demo](https://netflix-gpt-sable-five.vercel.app/ "Live Demo") [Demo Video](https://www.awesomescreenshot.com/video/30766257?key=56880fa6313fa25885cbcf2591dd9886 "Demo Video")
+
+## Sample User Test
+    - Email->hi@gmail.com
+    - Pass-> User@123
 - Create React App using Vite
 - Configured tailwindcss
 - Header
@@ -30,7 +34,7 @@
 - Building Secondary Container
 - fetch the image-TMDB CDN IMG container
 - Implemented movie container
-- buiild movie card
+- buiild movie card found what the problem was. 
 - hidden scrollable effect -movie card
 - created Custom Hooks for popular and upcoming movies
 - build NowPlaying,Upcoming and Popular movies cards using TMDB API
@@ -47,8 +51,12 @@
 - [Added Memoization]- to save redundant API calls
 - fix responsiveness of GEMINI search BAR and Movies Suggestions
 - fix responsiveness of homepage
-- Future TODO->Loader-Shimmer UI,Error Page,More functional like->Info of movies
-
+- Added Loader->Shimmer Effect-Main Container,Secondary container
+- Get Each movie details using TMDB API by movieID
+- Added Feature get info about each movie card ->Modal component
+- Testing on mobile First and Desktop Responsiveness
+- Getting things Ready of for Deployment. 
+- Deployement Bug Fixed Vercel-> found what the problem was. Vercel authenitcation was enabled under Deployment Protection. I hadn't noticed on my desktop because I had log in on my vercel account
 # Features
 - Login/Sign Up
     -SIgn In/ Sign u Form

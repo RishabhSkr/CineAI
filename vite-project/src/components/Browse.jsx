@@ -15,7 +15,7 @@ import { gptState } from "../store/atoms/gptAtom";
 const Browse = () => {
   const isUserLogged = useRecoilValue(isUserLoggedInState);
   const toggleGpt = useRecoilValue(gptState);
-  console.log(toggleGpt.toggleGptSearchView);
+  // console.log(toggleGpt.toggleGptSearchView);
   const navigate = useNavigate();
   useEffect(() => {
     if (!isUserLogged) {

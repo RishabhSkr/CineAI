@@ -6,7 +6,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { isTrailerKeyState } from "../store/selectors/isMovies.js";
 
 export const useMovieTrailer = (movieId) => {
-    const [trailerId, setTrailerId] = useRecoilState(trailerKeyState)
+    const [, setTrailerId] = useRecoilState(trailerKeyState)
     const isTrailer = useRecoilValue(isTrailerKeyState);
     // fetch the video trailer from yt using movieid
     const getMainMovieVideos = async () => {
@@ -16,9 +16,9 @@ export const useMovieTrailer = (movieId) => {
             // console.log(res.data);
             const videoData = res.data.results;
             const filterData = videoData.filter((video) => video.type == 'Trailer');
-            console.log(filterData);
+            // console.log(filterData);
             const trailer = filterData.length ? filterData[0] : videoData[0];
-            console.log(trailer);
+            // console.log(trailer);
             setTrailerId(trailer.key);
 
 

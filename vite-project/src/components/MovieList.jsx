@@ -13,7 +13,7 @@ export const MovieList = ({ title, movies = [] }) => {
           // Ensure movie object is valid and has poster_path
           if (movie && movie.poster_path) {
             return (
-              <MovieCard key={movie.id || index} posterPath={movie.poster_path} />
+              <MovieCard key={movie.id || index} movieId = {movie.id} posterPath={movie.poster_path} />
             );
           } else {
             // Handle cases where movie or poster_path is not available

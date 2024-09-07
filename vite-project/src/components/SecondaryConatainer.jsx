@@ -1,6 +1,7 @@
 import { MovieList } from './MovieList'
 import { useRecoilValue } from 'recoil'
 import { moviesNowPlayingState } from '../store/atoms/moviesAtom'
+import ShimmerLoader from './ShimmerLoader';
 
 export const SecondaryConatainer = () => {
   const moviesState = useRecoilValue(moviesNowPlayingState);
@@ -9,7 +10,7 @@ export const SecondaryConatainer = () => {
   const upcomingMovies = moviesState.upcomingMovies;
   // Check if data is still loading
   if (!moviesState ||!nowPlayingMovies || !upcomingMovies || !popularMovies) {
-    return <div>Loading...</div>; // Display loading indicator while fetching data
+    return <div><ShimmerLoader/></div>; // Display loading indicator while fetching data
   }
     // console.log(popularMovies)
     // console.log(nowPlayingMovies)
