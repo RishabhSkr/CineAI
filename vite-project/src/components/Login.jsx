@@ -1,17 +1,17 @@
-import { useRef, useState,useEffect} from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Header } from './Header';
 import { useNavigate } from "react-router-dom"
 import { formValidate } from '../utils/formValidate';
-import {signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { isUserLoggedInState } from '../store/selectors/isUserLogged';
 import { useRecoilValue } from 'recoil';
 import { BACKGROUND } from '../utils/constants';
 
-
 const Login = () => {
-  const isUserLogged= useRecoilValue(isUserLoggedInState);
+  const isUserLogged = useRecoilValue(isUserLoggedInState);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (isUserLogged) {
       navigate('/browse');
@@ -21,8 +21,8 @@ const Login = () => {
   if (isUserLogged) {
     return null; // Return null to avoid rendering the component
   }
+
   return (
-   
     <div className='absolute top-0 left-0 w-full h-full '>
       <Header />
       <div className='absolute top-0 left-0 w-full h-full '>
@@ -34,9 +34,7 @@ const Login = () => {
         <div className='absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-75'></div>
       </div>
       <LoginForm />
-
     </div>
-    
   );
 };
 
@@ -44,44 +42,46 @@ function LoginForm() {
   const navigate = useNavigate();
   const email = useRef(null);
   const password = useRef(null);
-  const [emailErrormsg,setEmailErrorMsg]=useState(null);
-  const [passwordErrormsg,setpasswordErrormsg]=useState(null);
+  const [emailErrormsg, setEmailErrorMsg] = useState(null);
+  const [passwordErrormsg, setPasswordErrorMsg] = useState(null);
+  const [loading, setLoading] = useState(false);  // Loading state added
 
-  
   const handSignInButton = async (e) => {
     e.preventDefault();
-    // validate 
+    setLoading(true); // Set loading to true when sign-in begins
+
+    // Validate form inputs
     const msg = formValidate(email.current.value, password.current.value);
-    
-    // Perform sign-in logic here
-    if (msg!= null && msg.includes("email")) {
-      setpasswordErrormsg(null);
+
+    if (msg != null && msg.includes("email")) {
+      setPasswordErrorMsg(null);
       setEmailErrorMsg(msg);
-    } else if (msg!= null && msg.includes("password")) {
+    } else if (msg != null && msg.includes("password")) {
       setEmailErrorMsg(null);
-      setpasswordErrormsg(msg);
+      setPasswordErrorMsg(msg);
     } else {
       setEmailErrorMsg(null);
-      setpasswordErrormsg(null);
+      setPasswordErrorMsg(null);
     }
-    if (msg) return;
-    
+
+    if (msg) {
+      setLoading(false); // Reset loading state if validation fails
+      return;
+    }
+
     try {
-      //Login user
+      // Attempt to sign in the user
       const userCredential = await signInWithEmailAndPassword(auth, email.current.value, password.current.value);
-      const user = userCredential.user;
-      alert("Successfully Logged In  User!"); 
-      // console.log(user);
-      navigate('/browse'); // Move navigation here
+      alert("Successfully Logged In User!");
+      navigate('/browse');  // Navigate after successful login
     } catch (error) {
-      const errorCode = error.code;
       const errorMessage = error.message;
-      setpasswordErrormsg(errorMessage);
-      console.log(errorCode + ": " + errorMessage);
+      setPasswordErrorMsg(errorMessage);
+      console.log(error.code + ": " + errorMessage);
+    } finally {
+      setLoading(false);  // Reset loading state after sign-in attempt
     }
   };
-
-
 
   const handleSignupNavigation = (event) => {
     event.preventDefault(); // Prevent the default anchor tag behavior
@@ -89,15 +89,7 @@ function LoginForm() {
   };
 
   return (
-    <div className='login-form-container
-                      w-full max-w-md 
-                      min-h-[640px]  
-                      bg-opacity-80 
-                      absolute 
-                      top-1/2 left-1/2 
-                      transform -translate-x-1/2 -translate-y-1/2
-                    bg-black p-16 text-white 
-                      rounded-md'>
+    <div className='login-form-container w-full max-w-md min-h-[640px] bg-opacity-80 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black p-16 text-white rounded-md'>
       <div className='text-white mb-4 text-3xl font-bold'>
         Sign In
       </div>
@@ -111,17 +103,17 @@ function LoginForm() {
             className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
           />
         </div>
-        <p className=' text-red-500 text-sm mb-2' >{emailErrormsg}</p>
+        <p className='text-red-500 text-sm mb-2'>{emailErrormsg}</p>
         <div className='mb-6'>
           <input
-          ref={password}
+            ref={password}
             type='password'
             placeholder='Password'
             className='w-full bg-transparent text-white p-2 border-b border-gray-500 focus:outline-none'
           />
         </div>
-        <p className=' text-red-500 text-sm mb-2' >{passwordErrormsg}</p>
-        <SignInButton handSignInButton={handSignInButton}/>
+        <p className='text-red-500 text-sm mb-2'>{passwordErrormsg}</p>
+        <SignInButton handSignInButton={handSignInButton} loading={loading} />
         <div className='flex items-center justify-between mb-4'>
           <span className='border-t border-gray-500 flex-grow mr-3'></span>
           <span className='text-center'>OR</span>
@@ -142,13 +134,15 @@ function LoginForm() {
     </div>
   );
 }
-const SignInButton = ({ handSignInButton }) => {
+
+const SignInButton = ({ handSignInButton, loading }) => {
   return (
     <button
       onClick={handSignInButton}
       className='w-full bg-red-600 border rounded-md text-white py-2 hover:bg-red-700 transition duration-300 mb-4'>
-      Sign In
+      {!loading ? "Sign In" : "Loading..."} 
     </button>
   );
 };
+
 export default Login;

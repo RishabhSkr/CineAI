@@ -17,7 +17,7 @@ export const SecondaryConatainer = () => {
   return (
     moviesState && (
       <div className="bg-black">
-        <div className=" mt-0 md:-mt-52 pl-4 md:pl-12 relative z-20  ">
+        <div className=" mt-0 md:-mt-52 pl-4 md:pl-12 relative z-15  ">
           <MovieList title={'Now Playing'} movies={nowPlayingMovies.results} />
           <MovieList title={'Popular'} movies={popularMovies.results} />
           <MovieList title={'Upcoming'} movies={upcomingMovies.results} />

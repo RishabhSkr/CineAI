@@ -48,13 +48,15 @@ function SignupForm() {
   const [emailErrormsg, setEmailErrorMsg] = useState(null);
   const [passwordErrormsg, setPasswordErrorMsg] = useState(null);
   const { addUser } = useUserActions(); // Use the custom hook
+  const [loading ,setLoading] = useState(false);
 
   const handleButtonClick = async (e) => {
     e.preventDefault();
-
+    setLoading(true); // Set loading to true when sign-in begins
     // Validate
     const msg = formValidate(email.current.value, password.current.value);
     if (msg) {
+      setLoading(false);
       if (msg.includes("email")) {
         setPasswordErrorMsg(null);
         setEmailErrorMsg(msg);
@@ -76,6 +78,7 @@ function SignupForm() {
         });
 
         addUser(user); // Set the user state using the custom hook
+        setLoading(false);
         alert("Successfully Created User!");
         navigate('/browse');
       } else {
@@ -86,6 +89,7 @@ function SignupForm() {
       const errorMessage = error.message;
       setPasswordErrorMsg(errorMessage);
       console.log(`${errorCode}: ${errorMessage}`);
+      setLoading(false);
     }
   };
 
@@ -135,7 +139,7 @@ function SignupForm() {
           {passwordErrormsg}
         </p>
         <button onClick={handleButtonClick} className='w-full bg-red-600 border rounded-md text-white py-2 hover:bg-red-700 transition duration-300 mb-4'>
-          Sign up
+        {!loading ? "Sign Up" : "Loading..."} 
         </button>
 
         <div className='flex items-center justify-between mb-4'>

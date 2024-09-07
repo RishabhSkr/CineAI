@@ -4,7 +4,7 @@ import { VideoBackground } from './VideoBackground';
 import { VideoTitle } from './VideoTitle';
 import ShimmerLoader from './ShimmerLoader';
 export const MainContainer = () => {
-  const movieObj = useRecoilValue(moviesNowPlayingState);
+  let movieObj = useRecoilValue(moviesNowPlayingState);
   
   // Check if data is still loading
   if (!movieObj.nowPlayingMovies) {

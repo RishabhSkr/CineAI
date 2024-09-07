@@ -55,7 +55,8 @@
 - Get Each movie details using TMDB API by movieID
 - Added Feature get info about each movie card ->Modal component
 - Testing on mobile First and Desktop Responsiveness
-- Getting things Ready of for Deployment. 
+- Getting things Ready of for Deployment.
+- Fix Ui Imporovements - Button Loading state in Sign In and Signup
 - Deployement Bug Fixed Vercel-> found what the problem was. Vercel authenitcation was enabled under Deployment Protection. I hadn't noticed on my desktop because I had log in on my vercel account
 # Features
 - Login/Sign Up
