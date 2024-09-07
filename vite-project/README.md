@@ -71,4 +71,5 @@
 - Netflix GPT
     -Search Bar
     -Movie Suggestion
+    -Get Each Movie Details
 
