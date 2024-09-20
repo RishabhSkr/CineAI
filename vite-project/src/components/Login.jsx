@@ -29,7 +29,9 @@ const Login = () => {
         <img
           src={BACKGROUND}
           alt='background'
+          autoPlay
           className='w-full h-full object-cover '
+          loading='lazy'
         />
         <div className='absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-75'></div>
       </div>

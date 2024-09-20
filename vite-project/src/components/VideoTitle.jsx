@@ -18,7 +18,7 @@ export const VideoTitle = ({ title, overview }) => {
   };
 
   return (
-    <div className='w-screen aspect-video pt-[30%] md:pt-[15%] bg-gradient-to-r from-black absolute text-white px-8 md:px-16'>
+    <div className='w-screen aspect-video pt-[30%] md:pt-[20%] bg-gradient-to-r from-black absolute text-white px-8 md:px-16'>
       <h1 className='text-2xl md:text-6xl font-bold'>{title}</h1>
       <p className='py-4 text-lg w-1/4 hidden md:inline-block'>{overview}</p>
       <div className='flex flex-row text-base mt-1 md:px-0'>

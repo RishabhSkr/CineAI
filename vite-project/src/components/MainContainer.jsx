@@ -3,6 +3,8 @@ import { moviesNowPlayingState } from '../store/atoms/moviesAtom';
 import { VideoBackground } from './VideoBackground';
 import { VideoTitle } from './VideoTitle';
 import ShimmerLoader from './ShimmerLoader';
+
+
 export const MainContainer = () => {
   let movieObj = useRecoilValue(moviesNowPlayingState);
   

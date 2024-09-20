@@ -1,4 +1,4 @@
-# Netflix GPT  [Live Demo](https://netflix-gpt-sable-five.vercel.app/ "Live Demo") [Demo Video](https://www.awesomescreenshot.com/video/30766257?key=56880fa6313fa25885cbcf2591dd9886 "Demo Video")
+# CineAI  [Live Demo](https://netflix-gpt-sable-five.vercel.app/ "Live Demo")
 
 ## Sample User Test
     - Email->hi@gmail.com
@@ -58,6 +58,7 @@
 - Getting things Ready of for Deployment.
 - Fix Ui Imporovements - Button Loading state in Sign In and Signup
 - Deployement Bug Fixed Vercel-> found what the problem was. Vercel authenitcation was enabled under Deployment Protection. I hadn't noticed on my desktop because I had log in on my vercel account
+- Background Updated
 # Features
 - Login/Sign Up
     -SIgn In/ Sign u Form
@@ -69,7 +70,7 @@
         -Title & Discription
         -Movie Suggestions
             -MovieList*N
-- Netflix GPT
+- CineAI-AI Feature
     -Search Bar
     -Movie Suggestion
     -Get Each Movie Details
