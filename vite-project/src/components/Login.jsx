@@ -126,7 +126,7 @@ function LoginForm() {
           <a href='#' className='hover:underline hover:opacity-70'>Forgot password?</a>
         </p>
         <p className='text-center mb-4'>
-          <span className='opacity-70'>New to Netflix?</span>
+          <span className='opacity-70'>New to CineAI?</span>
           <a onClick={handleSignupNavigation} className='text-white hover:underline ml-2 hover:cursor-pointer'>Sign up now.</a>
         </p>
         <span className='text-xs opacity-60 mb-2 text-center'>This page is protected by Google reCAPTCHA to ensure you&aposre not a bot.</span>
