@@ -1,0 +1,77 @@
+# CineAI  [Live Demo](https://netflix-gpt-sable-five.vercel.app/ "Live Demo")
+
+## Sample User Test
+    - Email->hi@gmail.com
+    - Pass-> User@123
+- Create React App using Vite
+- Configured tailwindcss
+- Header
+- Login Form
+- Signup Form
+- Form Validation
+- Deploy to the production
+- Firebase authentication
+- created recoil store 
+- create a userAtom-store userName,Email,Phto
+- create selector- isuserLoggedIn State
+- created a custom Hook userActions-adduser,Remove user
+- bug fixed-displayName updated using Recoil
+- Update Profile while SignUp
+- Unsubscribed from to authStatechanged callback
+- bug fixed- all hardcoded value moved to constant file
+- Register TMDB API and get access token
+- setup axios and get data of nowPlayingMovies from TMDB API
+- create movieAtom-nowPlaying atom
+- create custom Hook - to fetch nowPlaying Movies from API in browse page
+- Update the nowPlaying movies atom
+- create custom Hook - to fetch movie trailer from API in browse pages
+- create a Plan Main container,Secondary conatainer
+- create trailer atom moviesAtom
+- Update the trailer atom
+- create subcomponent - Video background,Video Title
+- Embed the Youtube Video trailer and make it autoplay and mute
+- Added styling using tailwind Main Container
+- Building Secondary Container
+- fetch the image-TMDB CDN IMG container
+- Implemented movie container
+- buiild movie card found what the problem was. 
+- hidden scrollable effect -movie card
+- created Custom Hooks for popular and upcoming movies
+- build NowPlaying,Upcoming and Popular movies cards using TMDB API
+- bug fixed-responsiveness on small screen
+- created toggle GPT atom and Component
+- GPT Search Bar and GPT Search Page
+- (Feature)created Multi-Language feature in app
+- integrate the GEMINI API
+- Bug Fixed-added a loading if data is null
+- Made  GEMINI search suggestions page
+- bug fixed - shows all movies category wise in GEMINI Search page
+- Added private keys to env variables
+- Optimization and Scalability issue Fixed -
+- [Added Memoization]- to save redundant API calls
+- fix responsiveness of GEMINI search BAR and Movies Suggestions
+- fix responsiveness of homepage
+- Added Loader->Shimmer Effect-Main Container,Secondary container
+- Get Each movie details using TMDB API by movieID
+- Added Feature get info about each movie card ->Modal component
+- Testing on mobile First and Desktop Responsiveness
+- Getting things Ready of for Deployment.
+- Fix Ui Imporovements - Button Loading state in Sign In and Signup
+- Deployement Bug Fixed Vercel-> found what the problem was. Vercel authenitcation was enabled under Deployment Protection. I hadn't noticed on my desktop because I had log in on my vercel account
+- Background Updated
+# Features
+- Login/Sign Up
+    -SIgn In/ Sign u Form
+    -redirect to Browse Page
+ - Browse (after authentication)
+    - Header
+    - Main Movie
+        -Trailer in Background
+        -Title & Discription
+        -Movie Suggestions
+            -MovieList*N
+- CineAI-AI Feature
+    -Search Bar
+    -Movie Suggestion
+    -Get Each Movie Details
+
